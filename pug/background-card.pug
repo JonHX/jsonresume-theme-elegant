@@ -4,12 +4,24 @@ section.col-md-9.card-wrapper.pull-right
     hr
 
     .background-details
-      include background/about.pug
-      include background/work-experience.pug
-      include background/skills.pug
-      include background/education.pug
-      include background/awards.pug
-      include background/volunteer-work.pug
-      include background/publications.pug
-      include background/interests.pug
-      include background/references.pug
+      -var index = 0
+      each val in resume
+        if resume.order.basics === index
+          include background/basics.pug
+        if resume.order.work === index
+          include background/work.pug
+        if resume.order.skills === index
+          include background/skills.pug
+        if resume.order.education === index
+          include background/education.pug
+        if resume.order.awards === index
+          include background/awards.pug
+        if resume.order.volunteer === index
+          include background/volunteer.pug
+        if resume.order.publications === index
+          include background/publications.pug
+        if resume.order.interests === index
+          include background/interests.pug
+        if resume.order.references === index
+          include background/references.pug
+        -index++
